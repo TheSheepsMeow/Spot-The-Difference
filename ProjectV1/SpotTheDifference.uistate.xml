@@ -9,12 +9,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         </active>
         <display name="HTML5" />
     </configurations>
-    <open-tabs>
-        <layout order="0">GameMode1</layout>
-        <event-sheet active="1" order="1">MechanicsCommon</event-sheet>
-        <event-sheet order="2">FeedbackCommon</event-sheet>
-        <event-sheet order="3">InterfaceCommon</event-sheet>
-    </open-tabs>
+    <open-tabs />
     <properties>
         <property expanded="1" name="About" />
         <property expanded="1" name="Project settings" />
@@ -27,17 +22,22 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="object-folder/Game/" />
         <folder expanded="1" path="object-folder/UI/" />
         <folder expanded="1" path="object-folder/BG/" />
+        <folder expanded="1" path="object-folder/Debug/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="1" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
-        <folder expanded="0" path="file-folder/Icons/" />
-        <folder expanded="1" path="animation-folder/DifferenceSpot/" />
-        <folder expanded="1" path="animation-folder/Drawing1/" />
-        <folder expanded="1" path="animation-folder/Drawing2/" />
-        <folder expanded="1" path="animation-folder/separator/" />
-        <folder expanded="1" path="animation-folder/Found/" />
+        <folder expanded="1" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/DifferenceSpot2/" />
+        <folder expanded="1" path="animation-folder/DifferenceSpot1/" />
         <folder expanded="1" path="animation-folder/Wrong/" />
+        <folder expanded="1" path="animation-folder/Found/" />
+        <folder expanded="1" path="animation-folder/separator/" />
+        <folder expanded="1" path="animation-folder/GameOver/" />
+        <folder expanded="1" path="animation-folder/imageLeftClone/" />
+        <folder expanded="1" path="animation-folder/imageLeft/" />
+        <folder expanded="1" path="animation-folder/imageTop/" />
+        <folder expanded="1" path="animation-folder/imageTopClone/" />
     </folders-expanded>
 </c2uistate>

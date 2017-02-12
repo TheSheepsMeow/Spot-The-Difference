@@ -3,8 +3,126 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>MechanicsCommon</name>
     <events>
+        <variable constant="0" name="currentLevel" sid="146290114980112" static="0" type="number">0</variable>
+        <variable constant="0" name="numCorrect" sid="947033763434558" static="0" type="number">0</variable>
+        <variable constant="0" name="timer" sid="988645278976551" static="0" type="number">15</variable>
+        <event-group description="Activate / deactivate this group as needed." disabled="1" sid="553034719764940" title="Debug">
+            <sub-events>
+                <event-block sid="560658898299689">
+                    <conditions />
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="702113395147777" type="DifferenceSpot1">
+                            <param id="0" name="Opacity">50</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="955070245328037" type="DifferenceSpot2">
+                            <param id="0" name="Opacity">50</param>
+                        </action>
+                        <action id="0" name="Set text" sid="269364055842679" type="debugText">
+                            <param id="0" name="Text">&quot;timer: &quot; &amp; timer &amp; newline &amp; &quot;numCorrect: &quot; &amp; numCorrect &amp; newline &amp; imageTop.ImagePointCount &amp; &quot; | &quot; &amp; imageLeft.ImagePointCount &amp; newline &amp; &quot;wrong: &quot; &amp; Wrong.Count &amp; newline &amp; &quot;currentLevel: &quot; &amp; currentLevel &amp; newline &amp; &quot;anim: &quot; &amp; imageTop.AnimationName</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="612382133299265" type="System">
+                            <param id="0" name="Layer">&quot;Debug&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="261953143042031" title="Level">
+            <sub-events>
+                <comment>The images of each level are frames of the sprite&apos;s animations.</comment>
+                <event-block sid="874732658772744">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="445471434520608" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="221519619607030">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="773084204799132" type="System">
+                                    <param id="0" name="Variable">currentLevel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="433994367963127" type="imageTop">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="269673514631476" type="imageTopClone">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="541442864552419">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="286295668407850" type="System">
+                                    <param id="0" name="Variable">currentLevel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="165183119966804" type="imageTop">
+                                    <param id="0" name="Animation">&quot;test1&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="492452777238493" type="imageTopClone">
+                                    <param id="0" name="Animation">&quot;test1&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="184169225739413">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="562601417850010" type="System">
+                                    <param id="0" name="Variable">currentLevel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="305659054646989">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="649038352757213" type="System">
+                                    <param id="0" name="Variable">currentLevel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <comment>We&apos;ll need something for what happens when the player beats all of the levels.</comment>
+                        <event-block sid="756104112446408">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="" sid="253414313236493" title="Setup">
             <sub-events>
+                <event-block sid="261822371170402">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="316276954460574" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="644342205845556" type="DifferenceSpot1">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="410402903270079" type="DifferenceSpot2">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="959196153949519" type="System">
+                            <param id="0" name="Layer">&quot;Debug&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <comment>Spawn locations where there are differences</comment>
                 <event-block sid="170398116992606">
                     <conditions>
@@ -12,133 +130,659 @@
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="639586534632898">
+                        <comment>The locations of the differences are specified by setting image points.</comment>
+                        <event-block sid="843750278651656">
                             <conditions>
-                                <condition id="-10" name="For" sid="416901626784775" type="System">
-                                    <param id="0" name="Name">&quot;SpotPlacer&quot;</param>
-                                    <param id="1" name="Start index">1</param>
-                                    <param id="2" name="End index">Drawing1.ImagePointCount</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action disabled="1" id="0" name="Spawn another object" sid="210759393276749" type="Drawing1">
-                                    <param id="0" name="Object">DifferenceSpot</param>
-                                    <param id="1" name="Layer">&quot;UI&quot;</param>
-                                    <param id="2" name="Image point">loopindex(&quot;SpotPlacer&quot;)</param>
-                                </action>
-                                <action disabled="1" id="-10" name="Set value" sid="594579020923730" type="DifferenceSpot">
-                                    <param id="0" name="Instance variable">ID</param>
-                                    <param id="1" name="Value">loopindex(&quot;SpotPlacer&quot;)</param>
-                                </action>
-                                <action id="0" name="Spawn another object" sid="157094908947608" type="Drawing2">
-                                    <param id="0" name="Object">DifferenceSpot</param>
-                                    <param id="1" name="Layer">&quot;UI&quot;</param>
-                                    <param id="2" name="Image point">loopindex(&quot;SpotPlacer&quot;)</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="361425367969607" type="DifferenceSpot">
-                                    <param id="0" name="Instance variable">ID</param>
-                                    <param id="1" name="Value">loopindex(&quot;SpotPlacer&quot;)</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-            </sub-events>
-        </event-group>
-        <event-group description="" sid="107304445397921" title="Gameplay">
-            <sub-events>
-                <event-block sid="960376298201852">
-                    <conditions>
-                        <condition id="14" name="On tap" sid="444037614242921" type="Touch" />
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="829201682647313">
-                            <conditions>
-                                <condition id="4" inverted="1" name="Is touching object" sid="244068478264370" type="Touch">
-                                    <param id="0" name="Object">DifferenceSpot</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-3" name="Create object" sid="169342986744881" type="System">
-                                    <param id="0" name="Object to create">Wrong</param>
-                                    <param id="1" name="Layer">&quot;FG&quot;</param>
-                                    <param id="2" name="X">Touch.X</param>
-                                    <param id="3" name="Y">Touch.Y</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="431270207038189">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="569796117311624" type="System" />
-                            </conditions>
-                            <actions />
-                        </event-block>
-                    </sub-events>
-                </event-block>
-                <event-block sid="359802235012381">
-                    <conditions>
-                        <condition id="17" name="On tap object" sid="440782993084942" type="Touch">
-                            <param id="0" name="Object">DifferenceSpot</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="741527345750623">
-                            <conditions>
-                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="422715318152174" type="DifferenceSpot">
-                                    <param id="0" name="Instance variable">found</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Spawn another object" sid="994404745788504" type="DifferenceSpot">
-                                    <param id="0" name="Object">Found</param>
-                                    <param id="1" name="Layer">&quot;FG&quot;</param>
-                                    <param id="2" name="Image point">0</param>
-                                </action>
-                                <action id="-11" name="Add to" sid="828960259590962" type="Drawing2">
-                                    <param id="0" name="Instance variable">numCorrect</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action id="-13" name="Set boolean" sid="248493752489876" type="DifferenceSpot">
-                                    <param id="0" name="Instance variable">found</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-                <event-group description="" sid="945118286936834" title="Victory">
-                    <sub-events>
-                        <event-block sid="249928296228450">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="646768005785408" type="Drawing2">
-                                    <param id="0" name="Instance variable">numCorrect</param>
+                                <condition id="-8" name="Compare two values" sid="645954647406214" type="System">
+                                    <param id="0" name="First value">LayoutName</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">Self.ImagePointCount</param>
+                                    <param id="2" name="Second value">&quot;testPortrait&quot;</param>
                                 </condition>
                             </conditions>
                             <actions />
                             <sub-events>
-                                <event-block sid="524101733432254">
+                                <comment>The portrait layout uses the image points of the imageTop object.</comment>
+                                <event-block sid="596679887286806">
                                     <conditions>
-                                        <condition id="-6" name="Every X seconds" sid="406292894736649" type="System">
-                                            <param id="0" name="Interval (seconds)">1</param>
+                                        <condition id="-10" name="For" sid="238342024593452" type="System">
+                                            <param id="0" name="Name">&quot;SpotPlacer&quot;</param>
+                                            <param id="1" name="Start index">1</param>
+                                            <param id="2" name="End index">imageTop.ImagePointCount</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-3" name="Create object" sid="101745973124994" type="System">
-                                            <param id="0" name="Object to create">Fireworks</param>
+                                        <action id="0" name="Spawn another object" sid="964087447434552" type="imageTop">
+                                            <param id="0" name="Object">DifferenceSpot1</param>
                                             <param id="1" name="Layer">&quot;FG&quot;</param>
-                                            <param id="2" name="X">random(LayoutWidth/4,LayoutWidth/2)</param>
-                                            <param id="3" name="Y">random(LayoutHeight/4,LayoutHeight/2)</param>
+                                            <param id="2" name="Image point">loopindex(&quot;SpotPlacer&quot;)</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="926162682642394" type="DifferenceSpot1">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Value">loopindex(&quot;SpotPlacer&quot;)</param>
                                         </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <event-block sid="976432094454412">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="917760259360018" type="System">
+                                    <param id="0" name="First value">LayoutName</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;testLandscape&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>The landscape layout uses the image points of the imageLeft object.</comment>
+                                <event-block sid="586577455042267">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="252082134070862" type="System">
+                                            <param id="0" name="Name">&quot;SpotPlacer&quot;</param>
+                                            <param id="1" name="Start index">1</param>
+                                            <param id="2" name="End index">imageLeftClone.ImagePointCount</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="270424386059329" type="imageLeft">
+                                            <param id="0" name="Object">DifferenceSpot1</param>
+                                            <param id="1" name="Layer">&quot;FG&quot;</param>
+                                            <param id="2" name="Image point">loopindex(&quot;SpotPlacer&quot;)</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="927701507316632" type="DifferenceSpot1">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Value">loopindex(&quot;SpotPlacer&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="571383498556942">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Create a copy on the other side</comment>
+                <event-block sid="217276766084539">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="246103137285940" type="DifferenceSpot1" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="189579122477969">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="141058462845997" type="System">
+                                    <param id="0" name="First value">LayoutName</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;testPortrait&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="314661914335946" type="System">
+                                    <param id="0" name="Object to create">DifferenceSpot2</param>
+                                    <param id="1" name="Layer">&quot;FG&quot;</param>
+                                    <param id="2" name="X">DifferenceSpot1.X</param>
+                                    <param id="3" name="Y">DifferenceSpot1.Y + imageTop.Height</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="771910781025022">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="957482921138998" type="System">
+                                    <param id="0" name="First value">LayoutName</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;testLandscape&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="438926848872888" type="System">
+                                    <param id="0" name="Object to create">DifferenceSpot2</param>
+                                    <param id="1" name="Layer">&quot;FG&quot;</param>
+                                    <param id="2" name="X">DifferenceSpot1.X + imageLeftClone.Width</param>
+                                    <param id="3" name="Y">DifferenceSpot1.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="475910749048247">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="166939270956967">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="781912658666260">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="107304445397921" title="Gameplay">
+            <sub-events>
+                <event-group description="" sid="541630805107940" title="Timer">
+                    <sub-events>
+                        <event-block sid="220516911122662">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                        <event-block sid="398812252163568">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="898124053869553" type="System">
+                                    <param id="0" name="Interval (seconds)">1.0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="746409422858097" type="System">
+                                    <param id="0" name="Variable">timer</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="133563797293190">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                        <event-block sid="700675545118590">
+                            <conditions />
+                            <actions />
+                        </event-block>
                     </sub-events>
                 </event-group>
+                <event-group description="" sid="791509966540911" title="Wrong">
+                    <sub-events>
+                        <event-block sid="109618196283057">
+                            <conditions>
+                                <condition id="14" name="On tap" sid="681089924838261" type="Touch" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="482248722633583">
+                                    <conditions>
+                                        <condition id="4" inverted="1" name="Is touching object" sid="633442387987007" type="Touch">
+                                            <param id="0" name="Object">DifferenceSpot1</param>
+                                        </condition>
+                                        <condition id="4" inverted="1" name="Is touching object" sid="864415171500836" type="Touch">
+                                            <param id="0" name="Object">DifferenceSpot2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="158724320935317" type="System">
+                                            <param id="0" name="Object to create">Wrong</param>
+                                            <param id="1" name="Layer">&quot;FG&quot;</param>
+                                            <param id="2" name="X">Touch.X</param>
+                                            <param id="3" name="Y">Touch.Y</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="550532473834663" type="System">
+                                            <param id="0" name="Variable">timer</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="699596843143038" type="Function">
+                                            <param id="0" name="Name">&quot;wrongFeedback&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="238816347492255">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="291202515756877" type="System" />
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="778133652953346" title="Found">
+                    <sub-events>
+                        <event-block sid="274119319740827">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="440051538031000" type="Touch">
+                                    <param id="0" name="Object">DifferenceSpot1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="900230959975401">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="588024586358047" type="DifferenceSpot1">
+                                            <param id="0" name="Instance variable">found</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="635497603003144" type="DifferenceSpot1">
+                                            <param id="0" name="Object">Found</param>
+                                            <param id="1" name="Layer">&quot;FG&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="800039215186758" type="DifferenceSpot1">
+                                            <param id="0" name="Instance variable">found</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action disabled="1" id="-11" name="Add to" sid="550084670947542" type="imageLeft">
+                                            <param id="0" name="Instance variable">numCorrect</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="632866581857892" type="System">
+                                            <param id="0" name="Variable">numCorrect</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="883923536137985" type="System">
+                                            <param id="0" name="Variable">timer</param>
+                                            <param id="1" name="Value">5</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="341590507659839" type="Function">
+                                            <param id="0" name="Name">&quot;foundFeedback&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="320571253499534">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="912514094507560" type="System">
+                                                    <param id="0" name="First value">LayoutName</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot;testPortrait&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Create object" sid="519572439818068" type="System">
+                                                    <param id="0" name="Object to create">Found</param>
+                                                    <param id="1" name="Layer">&quot;FG&quot;</param>
+                                                    <param id="2" name="X">DifferenceSpot1.X</param>
+                                                    <param id="3" name="Y">DifferenceSpot1.Y + imageTop.Height</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="816973729799014">
+                                                    <conditions>
+                                                        <condition id="-1" name="Compare X" sid="566077270751337" type="DifferenceSpot2">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="X co-ordinate">DifferenceSpot1.X</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="187666389097356" type="DifferenceSpot2">
+                                                            <param id="0" name="Instance variable">found</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="430407796097720">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="708475740681165" type="System">
+                                                    <param id="0" name="First value">LayoutName</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot;testLandscape&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Create object" sid="672787910372013" type="System">
+                                                    <param id="0" name="Object to create">Found</param>
+                                                    <param id="1" name="Layer">&quot;FG&quot;</param>
+                                                    <param id="2" name="X">DifferenceSpot1.X + imageLeftClone.Width</param>
+                                                    <param id="3" name="Y">DifferenceSpot1.Y</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="942458886669464">
+                                                    <conditions>
+                                                        <condition id="-2" name="Compare Y" sid="377581584395688" type="DifferenceSpot2">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Y co-ordinate">DifferenceSpot1.Y</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="108743820910430" type="DifferenceSpot2">
+                                                            <param id="0" name="Instance variable">found</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="772154431463629">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="151144984844774" type="Touch">
+                                    <param id="0" name="Object">DifferenceSpot2</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="668702582752518">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="440227875974509" type="DifferenceSpot2">
+                                            <param id="0" name="Instance variable">found</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="736494757351919" type="DifferenceSpot2">
+                                            <param id="0" name="Object">Found</param>
+                                            <param id="1" name="Layer">&quot;FG&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="513080712786117" type="DifferenceSpot2">
+                                            <param id="0" name="Instance variable">found</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action disabled="1" id="-11" name="Add to" sid="481809665555099" type="imageLeft">
+                                            <param id="0" name="Instance variable">numCorrect</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="325883738669496" type="System">
+                                            <param id="0" name="Variable">numCorrect</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="182976015827045" type="System">
+                                            <param id="0" name="Variable">timer</param>
+                                            <param id="1" name="Value">5</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="918494678131822" type="Function">
+                                            <param id="0" name="Name">&quot;foundFeedback&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="478059457703973">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="872247283287097" type="System">
+                                                    <param id="0" name="First value">LayoutName</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot;testPortrait&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Create object" sid="503758005915083" type="System">
+                                                    <param id="0" name="Object to create">Found</param>
+                                                    <param id="1" name="Layer">&quot;FG&quot;</param>
+                                                    <param id="2" name="X">DifferenceSpot2.X</param>
+                                                    <param id="3" name="Y">DifferenceSpot2.Y - imageTop.Height</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="973177219996776">
+                                                    <conditions>
+                                                        <condition id="-1" name="Compare X" sid="444014186121581" type="DifferenceSpot1">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="X co-ordinate">DifferenceSpot2.X</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="274949487941578" type="DifferenceSpot1">
+                                                            <param id="0" name="Instance variable">found</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="321786431483073">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="940091300329521" type="System">
+                                                    <param id="0" name="First value">LayoutName</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot;testLandscape&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Create object" sid="724072815790817" type="System">
+                                                    <param id="0" name="Object to create">Found</param>
+                                                    <param id="1" name="Layer">&quot;FG&quot;</param>
+                                                    <param id="2" name="X">DifferenceSpot2.X - imageLeft.Width</param>
+                                                    <param id="3" name="Y">DifferenceSpot2.Y</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="685262358071617">
+                                                    <conditions>
+                                                        <condition id="-2" name="Compare Y" sid="892495473978163" type="DifferenceSpot1">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Y co-ordinate">DifferenceSpot2.Y</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="151696836015566" type="DifferenceSpot1">
+                                                            <param id="0" name="Instance variable">found</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="663289297373221">
+                                            <conditions />
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <comment>Note for future: check if it&apos;s possible to have &apos;victory&apos; and &apos;game over&apos; at the same time</comment>
+        <event-group description="" sid="334482008025953" title="Victory">
+            <sub-events>
+                <comment>Win condition: find all differences.</comment>
+                <event-block sid="735057308977148">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="812563212959130" type="System">
+                            <param id="0" name="First value">LayoutName</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;testPortrait&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="107572138327180" type="System">
+                            <param id="0" name="Variable">numCorrect</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">imageTop.ImagePointCount</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="477939389671588">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="501070455768720" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="461409211629692" type="Function">
+                                    <param id="0" name="Name">&quot;victory&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="401561304446999">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="841468824166960" type="System">
+                                    <param id="0" name="Interval (seconds)">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="476642942588127" type="System">
+                                    <param id="0" name="Object to create">Fireworks</param>
+                                    <param id="1" name="Layer">&quot;FG&quot;</param>
+                                    <param id="2" name="X">random(LayoutWidth/4,LayoutWidth/2)</param>
+                                    <param id="3" name="Y">random(LayoutHeight/4,LayoutHeight/2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="181757037070546">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="905571579115104" type="System">
+                            <param id="0" name="First value">LayoutName</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;testLandscape&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="343871802514570" type="System">
+                            <param id="0" name="Variable">numCorrect</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">imageLeft.ImagePointCount</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="193003177319327">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="182547299663846" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="493660757093095" type="Function">
+                                    <param id="0" name="Name">&quot;victory&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="422468261132834">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="595459383402123" type="System">
+                                    <param id="0" name="Interval (seconds)">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="796360649234441" type="System">
+                                    <param id="0" name="Object to create">Fireworks</param>
+                                    <param id="1" name="Layer">&quot;FG&quot;</param>
+                                    <param id="2" name="X">random(LayoutWidth/4,LayoutWidth/2)</param>
+                                    <param id="3" name="Y">random(LayoutHeight/4,LayoutHeight/2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment></comment>
+                <event-block sid="473012049191133">
+                    <conditions>
+                        <condition id="0" name="On function" sid="315660060136375" type="Function">
+                            <param id="0" name="Name">&quot;victory&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="455553639421447" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="532512838851651" type="System">
+                            <param id="0" name="Variable">numCorrect</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="612461409676884" type="System">
+                            <param id="0" name="Variable">currentLevel</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="392036303414175" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="264468868112086" title="Game Over">
+            <sub-events>
+                <comment>Disable / enable lose conditions as needed.</comment>
+                <event-block sid="854441493789991">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="427796854567830" type="System">
+                            <param id="0" name="Variable">timer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="295509229291621" type="Function">
+                            <param id="0" name="Name">&quot;gameOver&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="412930195014633">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="775386272668449" type="System">
+                            <param id="0" name="First value">Wrong.Count</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="852744040969014" type="Function">
+                            <param id="0" name="Name">&quot;gameOver&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="300718224089604">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <comment></comment>
+                <event-block sid="859312695247065">
+                    <conditions>
+                        <condition id="0" name="On function" sid="534225105442731" type="Function">
+                            <param id="0" name="Name">&quot;gameOver&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="566043722407800" type="System">
+                            <param id="0" name="Group name">&quot;Gameplay&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="515549676296075" type="System">
+                            <param id="0" name="Group name">&quot;Timer&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="157598930995119" type="Fade" />
+                        <action behavior="Fade" id="1" name="Start fade" sid="570503593624527" type="GameOver" />
+                        <action id="-16" name="Wait" sid="637113625911711" type="System">
+                            <param id="0" name="Seconds">3</param>
+                        </action>
+                        <action id="-21" name="Reset global variables" sid="213866968603695" type="System" />
+                        <action id="-26" name="Restart layout" sid="704872617646000" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="583045599902586" title="Orientation">
+            <sub-events>
+                <event-block sid="360082173029557">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="533370274741045" type="System">
+                            <param id="0" name="First value">LayoutName</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;testPortrait&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-28" name="Set canvas size" sid="502970228271256" type="System">
+                            <param id="0" name="Width">640</param>
+                            <param id="1" name="Height">960</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="413959332948656">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="952108796073503" type="System">
+                            <param id="0" name="First value">LayoutName</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;testLandscape&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-28" name="Set canvas size" sid="839711524273940" type="System">
+                            <param id="0" name="Width">960</param>
+                            <param id="1" name="Height">640</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="482106808364690">
+                    <conditions />
+                    <actions />
+                </event-block>
             </sub-events>
         </event-group>
     </events>
