@@ -3,15 +3,20 @@
     <name>SpotTheDifference</name>
     <description></description>
     <version>1.0.0.0</version>
-    <author></author>
+    <author>The Sheep&apos;s Meow</author>
     <author-email></author-email>
-    <author-website>http://</author-website>
+    <author-website>http://www.thesheepsmeow.com</author-website>
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>23900</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
     <used-behaviors>
@@ -22,8 +27,8 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>480</width>
-        <height>320</height>
+        <width>640</width>
+        <height>960</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
@@ -37,14 +42,25 @@
         <prop name="Orientations">Landscape</prop>
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
-        <prop name="Preview browser">(default)</prop>
+        <prop name="Preview browser">Chrome</prop>
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
-        <object-folder name="Game" />
-        <object-folder name="UI">
-            <object-type name="DifferenceSpot" sid="989612204569463">
+        <object-folder name="Game">
+            <object-type name="DifferenceSpot2" sid="143527157476493">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="found" sid="858695169454929" type="boolean" />
+                    <instance-variable name="ID" sid="843884333413814" type="number" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="903110674756069" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="DifferenceSpot1" sid="989612204569463">
                 <plugin id="Sprite" />
                 <instance-variables>
                     <instance-variable name="found" sid="394950889456295" type="boolean" />
@@ -57,8 +73,66 @@
                 </animation-folder>
             </object-type>
         </object-folder>
+        <object-folder name="UI">
+            <object-type name="Wrong" sid="177690799531881">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="596710002081773">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="494573820689834" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Found" sid="893574847017179">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="753608660868117">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="149176612311453" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="separator" sid="309937151355293">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="169742386025151" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Fade" sid="183680953163191">
+                <plugin id="TiledBg" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="776498374821371">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+            </object-type>
+            <object-type name="GameOver" sid="291233000020523">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="629761056231769">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="763732860802621" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
         <object-folder name="BG">
-            <object-type name="Drawing1" sid="333592621551856">
+            <object-type name="imageLeftClone" sid="333592621551856">
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="603525769958513" speed="5">
@@ -72,7 +146,7 @@
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="Drawing2" sid="893860239728069">
+            <object-type name="imageLeft" sid="893860239728069">
                 <plugin id="Sprite" />
                 <instance-variables>
                     <instance-variable name="numCorrect" sid="930097744120305" type="number" />
@@ -89,52 +163,112 @@
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="separator" sid="309937151355293">
+            <object-type name="imageTop" sid="646840965390741">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="numCorrect" sid="161234250361453" type="number" />
+                </instance-variables>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="169742386025151" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="377467819890699" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Imagepoint 1" x="0.83125" y="0.108333" />
+                            <image-point name="Imagepoint 2" x="0.696875" y="0.3875" />
+                            <image-point name="Imagepoint 3" x="0.796875" y="0.841667" />
+                            <image-point name="Imagepoint 4" x="0.35625" y="0.704167" />
+                            <image-point name="Imagepoint 5" x="0.2625" y="0.270833" />
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="test1" pingpong="0" repeatcount="1" repeatto="0" sid="735434215443175" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\brian\OneDrive\Documents\d1.png">
+                            <image-point name="Imagepoint 1" x="0.103125" y="0.379167" />
+                            <image-point name="Imagepoint 2" x="0.471875" y="0.104167" />
+                            <image-point name="Imagepoint 3" x="0.3125" y="0.7" />
+                            <image-point name="Imagepoint 4" x="0.78125" y="0.404167" />
+                            <image-point name="Imagepoint 5" x="0.83125" y="0.8125" />
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
+            </object-type>
+            <object-type name="imageTopClone" sid="963602332925933">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="583684666388343" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Imagepoint 1" x="0.8375" y="0.1125" />
+                            <image-point name="Imagepoint 2" x="0.696875" y="0.3875" />
+                            <image-point name="Imagepoint 3" x="0.790625" y="0.845833" />
+                            <image-point name="Imagepoint 4" x="0.359375" y="0.7125" />
+                            <image-point name="Imagepoint 5" x="0.271875" y="0.279167" />
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="test1" pingpong="0" repeatcount="1" repeatto="0" sid="854979859006032" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\brian\OneDrive\Documents\d2.png">
+                            <image-point name="Imagepoint 1" x="0.8375" y="0.1125" />
+                            <image-point name="Imagepoint 2" x="0.696875" y="0.3875" />
+                            <image-point name="Imagepoint 3" x="0.790625" y="0.845833" />
+                            <image-point name="Imagepoint 4" x="0.359375" y="0.7125" />
+                            <image-point name="Imagepoint 5" x="0.271875" y="0.279167" />
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="Debug">
+            <object-type name="debugText" sid="545754693917480">
+                <plugin id="Spritefont2" />
+                <texture />
+            </object-type>
+            <object-type name="debugBG" sid="895566145690025">
+                <plugin id="TiledBg" />
+                <texture />
             </object-type>
         </object-folder>
         <object-type name="Touch" sid="267496964727261">
             <plugin id="Touch" />
         </object-type>
-        <object-type name="Found" sid="893574847017179">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Fade" sid="753608660868117">
-                    <behavior id="Fade" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="149176612311453" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Wrong" sid="177690799531881">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Fade" sid="596710002081773">
-                    <behavior id="Fade" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="494573820689834" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="Fireworks" sid="509334655766569">
             <plugin id="Particles" />
             <texture />
         </object-type>
+        <object-type name="Browser" sid="201809057454246">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type name="Function" sid="365832351145772">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="Audio" sid="309736980610551">
+            <plugin id="Audio" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
-        <layout>GameMode1.xml</layout>
+        <layout>testPortrait.xml</layout>
+        <layout>testLandscape.xml</layout>
+        <layout>objectStorage.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>MechanicsCommon.xml</event-sheet>
@@ -145,6 +279,22 @@
         <global-instance type="Touch" uid="4">
             <properties>
                 <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Browser" uid="7" />
+        <global-instance type="Function" uid="0" />
+        <global-instance type="Audio" uid="15">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
             </properties>
         </global-instance>
     </global-instances>
